@@ -1,0 +1,32 @@
+server:
+  port: 8100
+  servlet:
+    context-path: /app
+app:
+  jwt:
+    secret: $2a$12$M6bBvWy092p68tEdzM5ZT.zBFbFKvbznx.CBqI/yVI9gcoCNYEP/y
+    jwtTokenValidityInMs: 604800
+    authorizationHeader: Authorization
+
+
+spring:
+  application:
+    name: spring-jwt-t1
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    change-log: db/changelog/db.changelog-master.yaml
+
+
